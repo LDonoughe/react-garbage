@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {garbage: []}
     this.addGarbage = this.addGarbage.bind(this)
     this.removeTrash = this.removeTrash.bind(this)
   }
@@ -38,7 +38,24 @@ class App extends Component {
   }
 }
 
+const StatelessApp = (garbage) => {
+  console.log('garbage')
+  console.log(garbage)
+  return (
+  <div className="App">
+        Welcome to React Garbage
+      <br />
+      <GenerateTrashButton/> 
+      <div className="Trash">
+        {garbage.map(garbage => <div>{garbage}</div>)}
+      </div>
+      <RemoveTrashButton/>
+      </div>
+  )
+}
+
 const GenerateTrashButton = ({addGarbage}) => <button onClick={addGarbage}>Generate Trash</button> 
 const RemoveTrashButton = ({removeTrash}) => <button onClick={removeTrash}>Take out the Trash!</button> 
 
-export default App;
+  FIXME: debug state to props
+export default connect(state => ({garbage: state}))(StatelessApp)

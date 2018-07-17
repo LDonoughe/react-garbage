@@ -1,5 +1,6 @@
 import { createStore } from 'redux'
-// todo: reducers
-const store = createStore(() => ({}))
+import reducer from './reducers'
+const store = createStore(reducer)
+console.log(store.getState())
 export default store
 

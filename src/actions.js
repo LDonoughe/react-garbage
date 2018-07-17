@@ -6,7 +6,6 @@ export const createGarbage = (garbage) => ({
 
 export const CLEAR_GARBAGE = 'CLEAR_GARBAGE'
 export const clearGarbage = () => ({
-  garbage
+  type: CLEAR_GARBAGE
 })
 
-// TODO: Finish Creating Actions
